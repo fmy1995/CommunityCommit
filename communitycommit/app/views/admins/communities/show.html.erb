@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <div class="row">
+    <h3 class="bg-light mb-5">コミュニティページ</h3>
+  </div>
+ <div class="row">
+
+  <div class="col-md-6 mt-5 ml-4">
+   <div>
+    <label>コミュニティ名：</label>
+    <%= @community.name %>
+   </div>
+   <div>
+    <label>概要説明：</label>
+    <%= @community.introduction %>
+   </div>
+   
+   <div class="mt-5">
+    <%= link_to "編集する", edit_admins_community_path(@community), class: "btn btn-success" %>
+   </div>
+  </div>
+ </div>
+</div>
