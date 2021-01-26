@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     when Admin
       admins_communities_path
     when User
-      customers_communities_path
+      users_communities_path
     end
  end
 
