@@ -1,9 +1,32 @@
-<h1>コミコミ</h1>
-<h2>CommunityCommit</h2>
-
-          <li>一般ユーザー</li>
-          <li><%= link_to "新規登録", new_user_registration_path, class: 'btn btn-secondary' %></li>
-          <li><%= link_to "ログイン", new_user_session_path, class: 'btn btn-secondary' %></li>
-          <li>管理者（コミュニティ代表）</li>
-          <li><%= link_to "新規登録", new_admin_registration_path, class: 'btn btn-secondary' %></li>
-          <li><%= link_to "ログイン", new_admin_session_path, class: 'btn btn-secondary' %></li> 
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8">
+      <h3 class="text-center">ようこそ<strong>コミコミ</strong>へ</h3>
+    </div>
+  </div>
+  
+    <div class="row make">
+    <div class="col-8">
+      <table class="table table-borderless">
+        <tr>
+          <td><h5>
+          このサイトは、マンション管理組合の運営を支援する掲示板サイトです。</br>
+          ご使用方法は、使用方法詳細をご確認ください。      
+          </h5></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+ <div class="row make">
+   <div class="col-8">
+          <h5 class="text-left mt-3">一般ユーザー</h5>
+          <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+          <%= link_to "ログイン", new_user_session_path, class: 'btn btn-primary btn-lg' %>
+          <h5 class="text-left mt-3">管理者（コミュニティ代表）</h5>
+          <%= link_to "新規登録", new_admin_registration_path, class: 'btn btn-warning btn-lg' %>
+         <%= link_to "ログイン", new_admin_session_path, class: 'btn btn-warning btn-lg' %>
+   </div>
+  </div>    
+         
+  </div>
