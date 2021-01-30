@@ -31,5 +31,15 @@
     </table>
    </div> 
  </div>
-</div>
+ 
+<table>
+  <% @community.posts.each do |post| %>
+    	<td><%= post.comment %></td>
+    	<% if current_admin == post_admin %>
+      	<td><%= link_to 'Destroy', community_post_path(post.community_id, post.id), class: 'btn-sm btn-danger', method: :delete %></td>
+    	<% end %>
+    </tr>
+  <% end %>
+</table>
+ 
 </div>

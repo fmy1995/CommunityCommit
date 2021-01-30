@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <h3 class="bg-light m-5"><strong>お知らせ作成</strong></h3>
+      
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="mx-auto">
+<%= form_with model: @post, url: admins_community_posts_path, local: true do |f| %>
+
+ <div class="form-group">
+  <%= f.label :title, "タイトル" %>
+  <%= f.text_field :title, class: 'form-control'%>
+ </div>
+ <div class="form-group">
+  <%= f.label :post_text, "テキスト" %>
+  <%= f.text_area :post_text, size:"90x5", class: 'form-control' %>
+ </div>
+ <div class="form-group">
+   <%= f.radio_button :in_front, true %>
+   <%= f.label :in_front, "高（コミュニティページのトップに掲載）", {value: :true, style: "display: inline-block;"} %>
+   <%= f.radio_button :in_front, false %>
+   <%= f.label :in_front, "低（お知らせ一覧に掲載）", {value: :false, style: "display: inline-block;"} %>
+ </div>
+ 
+ <div class="form-group">
+  <%= f.label :imege, "添付画像" %>
+  <%= f.attachment_field :image %>
+ </div>
+ 
+ 
+  <%= f.submit '作成', class: "btn btn-success" %>
+  
+<% end %>
+    </div>
+  </div>
+</div>

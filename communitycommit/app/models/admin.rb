@@ -5,5 +5,6 @@ class Admin < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
 has_many :communities, dependent: :destroy 
+has_many :posts, dependent: :destroy
 
 end

@@ -32,4 +32,9 @@
      <%= link_to "編集する", edit_admins_community_path(@community), class: "btn btn-success" %>
    </div> 
  </div>
+    <% @posts.each do |post| %>
+        <%= post.title %>
+      <% end %>
+ 
+ <%= link_to "お知らせ作成", new_admins_community_post_path(@community), class: "btn btn-success" %>
 </div>
