@@ -5,6 +5,7 @@ def index
 end
 
 def show
+ @post = Post.find(params[:id])
 end    
 
 def new
@@ -23,9 +24,14 @@ def create
 end 
 
 def edit
+ @post = Post.find(params[:id])
 end
 
 def update
+ @post = Post.find(params[:id])
+ if @post.update(post_params)
+ redirect_to admins_community_post_path(@post)
+ end
 end
 
 def destroy

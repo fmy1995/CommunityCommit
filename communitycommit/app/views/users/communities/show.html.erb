@@ -20,7 +20,7 @@
    <table class="table table-bordered">
     <tbody>
       <tr>
-       <th class="bg-light tytle">コミュニティ名</th>
+       <th class="bg-light">コミュニティ名</th>
        <td><%= @community.name %></td>
        </tr>
        <tr>
@@ -32,14 +32,22 @@
    </div> 
  </div>
  
-<table>
-  <% @community.posts.each do |post| %>
-    	<td><%= post.comment %></td>
-    	<% if current_admin == post_admin %>
-      	<td><%= link_to 'Destroy', community_post_path(post.community_id, post.id), class: 'btn-sm btn-danger', method: :delete %></td>
-    	<% end %>
-    </tr>
-  <% end %>
-</table>
- 
+<div class="row">
+ <div class="col-9">
+<h5><strong>お知らせ掲示板</strong><%= link_to "全てを表示", users_community_posts_path(@community), class: "btn btn-success ml-2" %></h5>
+
+
+   <table class="table table-bordered">
+    <tbody>
+      <tr> 
+     <% @posts.each do |post| %>
+     <td><%= link_to  users_community_post_path(post.id) do %><%= post.title %><% end %></td>
+     <th><%= post.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d %H:%M:%S') %></th>
+     <% end %>
+      </tr>
+     </tbody>
+    </table>
+  </div>
+</div>
+    
 </div>

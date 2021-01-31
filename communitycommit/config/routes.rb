@@ -16,9 +16,11 @@ passwords:     'admins/passwords',
 registrations: 'admins/registrations'
 }
 namespace :admins do
-resources :communities do
-  resources :posts
-end
+ resources :communities do
+  resources :posts do
+   resources :post_comments, only: [:show, :index]
+  end
+ end
 end
 
 devise_for :users, controllers: {
@@ -29,7 +31,9 @@ devise_for :users, controllers: {
 namespace :users do
 resources :users ,:only => [:show, :edit,:update]  
 resources :communities, :only => [:index,:show] do
- resources :posts, :only => [:index,:show]
+ resources :posts, :only => [:index,:show] do
+   resources :post_comments, only: [:create, :destroy]
+ end
 end
 end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

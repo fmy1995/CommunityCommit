@@ -8,4 +8,7 @@ class User < ApplicationRecord
   validates :postal, format: { with: /\A\d{7}\z/ }
   validates :adress, presence: true
   validates :phone_number, format: { with: /\A\d{10,11}\z/}
+  
+  has_many :post_comments, dependent: :destroy
+  
 end

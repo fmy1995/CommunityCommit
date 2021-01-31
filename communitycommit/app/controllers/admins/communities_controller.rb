@@ -5,7 +5,7 @@ class Admins::CommunitiesController < ApplicationController
 
   def show
     @community = Community.find(params[:id])
-    @posts = Post.all
+    @posts = Community.find(params[:id]).posts
   end
 
   def new
