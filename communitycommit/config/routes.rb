@@ -15,7 +15,10 @@ sessions:      'admins/sessions',
 passwords:     'admins/passwords',
 registrations: 'admins/registrations'
 }
+get "communities/belonged" => "communities#belonged"
+
 namespace :admins do
+ resources :users, :only => [:index,:show,:edit,:update]
  resources :communities do
   resources :posts do
    resources :post_comments, only: [:show, :index]
@@ -31,6 +34,7 @@ devise_for :users, controllers: {
 namespace :users do
 resources :users ,:only => [:show, :edit,:update]  
 resources :communities, :only => [:index,:show] do
+ resource :belongs, only: [:create, :destroy]
  resources :posts, :only => [:index,:show] do
    resources :post_comments, only: [:create, :destroy]
  end
