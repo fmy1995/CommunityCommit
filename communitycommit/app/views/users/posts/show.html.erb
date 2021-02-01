@@ -44,13 +44,25 @@
    </div> 
  </div>
  
- <% @post.post_comments.each do |post_comment| %>
- <table>
+   <div class="row">
+    <div class="col-md-5 mt-5">
+      <h5>コメント</h5>
+    </div>
+  </div>
+ 
+ <table class="table table-hover">
   <tr>
+   <th>氏名</th>
+   <th>コメント</th>
+   <th></th>
+  </tr>
+         
+  <tr>
+    <% @post.post_comments.each do |post_comment| %>  
   	<td><%= post_comment.user.name %></td>
   	<td><%= post_comment.comment %></td>
   	<% if current_user == post_comment.user %>
-    	<td><%= link_to 'Destroy', users_community_post_post_comment_path(post_id: @post.id, id: post_comment.id), class: 'btn-sm btn-danger', method: :delete, remote: true %></td>
+　　<td><%= link_to 'コメントを削除', users_community_post_post_comment_path(post_id: @post.id, id: post_comment.id), class: 'btn-sm btn-danger', method: :delete, remote: true %></td>
   	<% end %>
   </tr>
 </table>
@@ -59,9 +71,9 @@
  
   <table class=" mt-5">
   <tr>
-   <td>
+   
   <%= form_with model:[@post,@post_comment], url: users_community_post_post_comments_path(post_id: @post.id), mthod: :post, local:true do |f| %>
-   <%= f.text_area :comment, size:"60x2" %></td>
+  <td><%= f.text_area :comment, size:"60x2" %></td>
   <td><%= f.submit 'コメントを送信', class: "btn btn-success" %></td>
   <% end %>
    </tr>
