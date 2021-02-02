@@ -40,18 +40,17 @@
  <div class="col-9">
 <h5><strong>お知らせ掲示板</strong><%= link_to "全てを表示", admins_community_posts_path(@community), class: "btn btn-success ml-2" %></h5>
 
-
    <table class="table table-bordered">
     <tbody>
-      <tr> 
-     <% @posts.each do |post| %>
-     <td><%= link_to  admins_community_post_path(post.id) do %><%= post.title %><% end %></td>
+     <% @posts.each do |post| %>     
+     <tr> 
+     <td><%= link_to  admins_community_post_path(community_id: post.community_id, id: post.id)  do %><%= post.title %><% end %></td>
      <th><%= post.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d %H:%M:%S') %></th>
-     <% end %>
       </tr>
+     <% end %>     
      </tbody>
     </table>
- 
+    
  <%= link_to "お知らせ作成", new_admins_community_post_path(@community), class: "btn btn-success" %>
   </div>
  </div>

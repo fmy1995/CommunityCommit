@@ -40,15 +40,16 @@
  <div><%= @post.post_text %></div>
 
     <%= attachment_image_tag @post, :image, size: "300x300" %>
-    
-     <%= link_to "編集する", edit_admins_community_post_path(@post), class: "btn btn-success mt-4" %>
+
    </div> 
  </div>
-</div> 
+ <%= link_to "編集する", edit_admins_community_post_path(@post), class: "btn btn-success mt-4" %>
+ <%= link_to "削除する", admins_community_post_path(community_id: @post.community_id, id: @post.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger mt-4 destroy_book_#{@post.id}" %>
+
  
-<div class="container mt-5">
+<div class="container">
  <div class="row">
-  <div class="col-md-5 mt-5">
+  <div class="col-md-5 mt-3">
   <h5>コメント</h5>
   </div>
  </div>
@@ -57,15 +58,13 @@
   <tr>
    <th>氏名</th>
    <th>コメント</th>
-
   </tr>
-         
+    <% @post.post_comments.each do |post_comment| %>    
   <tr>
-    <% @post.post_comments.each do |post_comment| %>  
   	<td><%= post_comment.user.name %></td>
   	<td><%= post_comment.comment %></td>
   </tr>
+<% end %>  
 </table>
-<% end %>
- 
+</div> 
 </div> 

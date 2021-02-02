@@ -39,7 +39,7 @@ def destroy
  @community = Community.find(params[:community_id])
  post = @community.posts.find(params[:id])
  post.destroy
- redirect_to request.referer
+ redirect_to admins_community_posts_path
 end
 
 private
