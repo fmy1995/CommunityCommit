@@ -1,22 +1,19 @@
-<div class="container mt-5">
+<div class="jumbotron jumbotron-fluid text-red" style="background: url(<%= asset_path "top1.jpg" %>) center; background-size:cover;">  
+<div class="container" >
   <div class="row">
     <div class="col-md-8">
-      <h3 class="text-center">ようこそ<strong>コミコミ</strong>へ</h3>
+      <h3 class="text-left">ようこそ<strong>コミコミ</strong>へ</h3>
     </div>
   </div>
   
-    <div class="row make">
-    <div class="col-8">
-      <table class="table table-borderless">
-        <tr>
-          <td><h5>
-          このサイトは、マンション管理組合の運営を支援する掲示板サイトです。</br>
-          ご使用方法は、使用方法詳細をご確認ください。      
-          </h5></td>
-        </tr>
-      </table>
-    </div>
+ <div class="row make">
+  <div class="col-8">
+    <h5>
+    このサイトは、マンション管理組合の運営を支援する掲示板サイトです。</br>
+    ご使用方法は、使用方法詳細をご確認ください。      
+    </h5>
   </div>
+ </div>
   
  <div class="row make">
    <div class="col-8">
@@ -28,5 +25,5 @@
          <%= link_to "ログイン", new_admin_session_path, class: 'btn btn-warning btn-lg' %>
    </div>
   </div>    
-         
+  </div>       
   </div>

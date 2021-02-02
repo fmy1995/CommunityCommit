@@ -18,7 +18,7 @@ registrations: 'admins/registrations'
 get "communities/belonged" => "communities#belonged"
 
 namespace :admins do
- resources :users, :only => [:index,:show,:edit,:update]
+ resources :users, :only => [:show]
  resources :communities do
   resources :posts do
    resources :post_comments, only: [:show, :index]
