@@ -1,7 +1,6 @@
-<div class="container mt-5">
   <div class="row">
-    <div class="col-md-5">
-      <h3 class="text-center bg-light"><strong><%= @community.name %>コミュニティページ</strong></h3>
+    <div class="col">
+      <h3 class="text-center mt-3"><strong><%= @community.name %>コミュニティページ</strong></h3>
         <% if @community.belonged_by?(current_user) %>
     <p>
       <%= link_to users_community_belongs_path(@community), class: "btn btn-danger", method: :delete do %>
@@ -18,53 +17,39 @@
     </p>
   <% end %>
       
-      
-    </div>
-  </div>
-
-  <div class="row make">
-    <div class="col-5">
-      <table class="table table-borderless">
-        <tr>
-          <td><h5><strong>登録情報</strong></h5></td>
-        </tr>
-      </table>
-    </div>
-  </div>
-
-<div class="row">
- <div class="col-9">
+   <h5><strong>登録情報</strong></h5>    
    <table class="table table-bordered">
     <tbody>
       <tr>
        <th class="bg-light">コミュニティ名</th>
-       <td><%= @community.name %></td>
+       <td class="bg-light"><%= @community.name %></td>
        </tr>
        <tr>
         <th class="bg-light">概要説明</th>
-        <td><%= @community.introduction %></td>
+        <td class="bg-light"><%= @community.introduction %></td>
        </tr>
       </tbody>
     </table>
-   </div> 
- </div>
- 
-<div class="row">
- <div class="col-9">
-<h5><strong>お知らせ掲示板</strong><%= link_to "全てを表示", users_community_posts_path(@community), class: "btn btn-success ml-2" %></h5>
+
+  </div>
+</div>    
+    
+<div class="row mt-5">
+  <div class="col">
+    <h5><strong>お知らせ掲示板</strong><%= link_to "全てを表示", users_community_posts_path(@community), class: "btn btn-success ml-2" %></h5>
 
    <table class="table table-bordered">
     <tbody>
-     <% @posts.each do |post| %>     
+    <% @posts.each do |post| %>
+     <% if post.in_front == true %>
      <tr> 
-     <td><%= link_to  users_community_post_path(community_id: post.community_id, id: post.id)  do %><%= post.title %><% end %></td>
-     <th><%= post.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d %H:%M:%S') %></th>
+     <td class="bg-light"><%= link_to  users_community_post_path(community_id: post.community_id, id: post.id)  do %><%= post.title %><% end %></td>
+     <th class="bg-light"><%= post.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d %H:%M:%S') %></th>
       </tr>
-     <% end %>     
+     <% end %> 
+    <% end %> 
      </tbody>
     </table>
     
   </div>
-</div>
-    
 </div>

@@ -1,29 +1,71 @@
-<div class="jumbotron jumbotron-fluid text-red" style="background: url(<%= asset_path "top1.jpg" %>) center; background-size:cover;">  
-<div class="container" >
-  <div class="row">
-    <div class="col-md-8">
-      <h3 class="text-left">ようこそ<strong>コミコミ</strong>へ</h3>
-    </div>
-  </div>
-  
- <div class="row make">
-  <div class="col-8">
+ 
+ <div class="row">
+   <div class="col-12">  
+     <div class="jumbotron" style="background: url(<%= asset_path "top1.jpg" %>) center; background-size:cover;">  
+       <h3 class="text-left">ようこそ<strong>コミコミ</strong>へ</h3>
+     </div>
+
+  <div class="main-text ml-4">
     <h5>
     このサイトは、マンション管理組合の運営を支援する掲示板サイトです。</br>
-    ご使用方法は、使用方法詳細をご確認ください。      
+    ご使用方法は、本ページ下記にてご確認ください。      
     </h5>
   </div>
- </div>
   
- <div class="row make">
-   <div class="col-8">
-          <h5 class="text-left mt-3">一般ユーザー</h5>
-          <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-primary btn-lg' %>
-          <%= link_to "ログイン", new_user_session_path, class: 'btn btn-primary btn-lg' %>
-          <h5 class="text-left mt-3">管理者（コミュニティ代表）</h5>
-          <%= link_to "新規登録", new_admin_registration_path, class: 'btn btn-warning btn-lg' %>
-         <%= link_to "ログイン", new_admin_session_path, class: 'btn btn-warning btn-lg' %>
-   </div>
-  </div>    
-  </div>       
+  <div class="login-box mt-3 mb-5 ml-4">
+  <% if user_signed_in? %>
+   <h5 class="text-left mt-3">一般ユーザー</h5>
+    <%= link_to "新規登録（一般ユーザー）", new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+    <%= link_to "ログイン（一般ユーザー）", new_user_session_path, class: 'btn btn-primary btn-lg' %>
+  <% elsif admin_signed_in? %>
+   <h5 class="text-left mt-3">管理者（コミュニティ代表）</h5>
+    <%= link_to "新規登録（管理者）", new_admin_registration_path, class: 'btn btn-warning btn-lg' %>
+    <%= link_to "ログイン（管理者）", new_admin_session_path, class: 'btn btn-warning btn-lg' %>
+  <% elsif %> 
+  <h5 class="text-left mt-3">一般ユーザー</h5>
+    <%= link_to "新規登録（一般ユーザー）", new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+    <%= link_to "ログイン（一般ユーザー）", new_user_session_path, class: 'btn btn-primary btn-lg' %> 
+  <h5 class="text-left mt-3">管理者（コミュニティ代表）</h5>
+    <%= link_to "新規登録（管理者）", new_admin_registration_path, class: 'btn btn-warning btn-lg' %>
+    <%= link_to "ログイン（管理者）", new_admin_session_path, class: 'btn btn-warning btn-lg' %>
+   <% end %>
   </div>
+</div>
+</div>
+
+ <div class="row">
+   <div class="col-12">  
+     <div class="jumbotron" style="background: url(<%= asset_path "tile.jpg" %>) bottom; background-size:content">  
+       <h3 class="text-left"><strong>ご使用方法</strong>＜登録フォーム＞</h3>
+     </div>
+
+  <div class="main-text ml-4">
+    <h5>
+      このサイトは、管理者が『コミュニティ』を作成し、</br>
+    一般ユーザーがその『コミュニティ』に所属することで、情報の共有を図れる掲示板です。</br>
+    </br>
+    マンション管理組合の理事長様や、マンション管理会社の担当フロント様が、</br>
+    本サイトでは『管理者』として、ご登録いただき、『コミュニティ』を作成してください。</br>
+    <% if user_signed_in? %>
+    <% elsif admin_signed_in? %>
+    <% elsif %> 
+    <%= link_to "新規登録（管理者）", new_admin_registration_path, class: 'btn btn-warning btn-block mt-4' %></br>
+    <% end %>  
+      </h5>  
+  </div> 
+  
+    <div class="main-text ml-4">  
+       <h5> 
+    そのほかの方は、『一般ユーザー』として、ご登録いただき、</br>
+    『管理者』が作成した『コミュニティ』ページにて、『所属』ボタンを押し、所属してください。</br>
+    それ以降は、一般ユーザーは、マイページから、所属しているコミュニティを確認できます。</br>
+    <% if user_signed_in? %>
+    <% elsif admin_signed_in? %>
+    <% elsif %>    
+    <%= link_to "新規登録（一般ユーザー）", new_user_registration_path, class: 'btn btn-primary btn-block mt-4' %>
+    <% end %>  
+    </h5>
+  </div>
+  
+ </div>
+</div>

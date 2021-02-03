@@ -1,11 +1,8 @@
-<div class="container pt-5">
- 
- <div class="row">
-  <div class="col-3">
-   <h3 class="text-center bg-light"><strong>コミュニティ</strong></h3>
-  </div>
- </div>
- 
+ <div class="row pb-2">
+  <div class="col">
+   <h3 class="text-center mb-5"><strong>コミュニティ＜一覧＞検索窓設置予定　</strong></h3>
+
+
  <table class="table table-hover">
    <thead class="bg-light">
     <tr>
@@ -16,8 +13,8 @@
    <% @communities.each do |community| %>
    <tbody>
     <tr>
-     <td> <%= community.id %></td>
-     <td>
+     <td class="bg-light"> <%= community.id %></td>
+     <td class="bg-light">
     　 <%= link_to users_community_path(community.id) do %>
        <%= community.name %>
       <% end %>
@@ -27,5 +24,6 @@
    <% end %>
   </table>
   
+   </div>
  </div>
-  </div>
+ 

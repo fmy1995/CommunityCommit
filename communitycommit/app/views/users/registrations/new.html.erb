@@ -1,5 +1,5 @@
-
-<div class="container">
+<div class="row">
+<div class="col ">
 <h3>新規登録画面</h3>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "pt-4" }) do |f| %>
@@ -59,7 +59,7 @@
 <% end %>
 　　<div>
       <h3>既に登録済みの方</h3>
-      <p><%= link_to "こちら",new_user_session_path %>からログインしてください。</p>
+      <p><strong><%= link_to "こちら",new_user_session_path %></strong>からログインしてください。</p>
     </div>
-
-  </div>
+</div>
+</div>

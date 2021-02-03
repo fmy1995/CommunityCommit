@@ -8,39 +8,41 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
-<header>
-  <%= link_to root_path do %>
-<div class = "text-center bg-primary text-white">
-<h1>CommunityCommit</h1>
-<h3>コミュニティコミット</h3></div><% end %>
-  <nav class=" navbar navbar-expand-lg navbar-dark bg-white">
-    <div class="text-center collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar navbar-light " style="background-color: #e3f2fd;">
+  
+<body class="jumbotron jumbotron-fluid" style="background: url(<%= asset_path "background-sky.jpg" %>); background-size:cover;">
+    
+<header class ="topbar text-white mb-3">
+<div class = "text-center">
+  <h1>CommunityCommit</h1>
+  <h3>コミュニティコミット</h3></div> 
+　　<nav class="navbar navbar-expand-sm navbar-dark">
+        <div class="collapse navbar-collapse justify-content-center">
+            <ul class="navbar-nav">
         <% if user_signed_in? %>
-          <%= link_to "トップ", root_path, class: 'btn btn-info mr-4' %>        
-          <%= link_to "マイページ",users_user_path(current_user.id), class: 'btn btn-info mr-4' %>
-          <%= link_to "コミュニティ",users_communities_path, class: 'btn btn-info mr-4' %>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-info' %>
+          <li class="nav-item active"><%= link_to "トップ", root_path, class: 'btn btn-info mr-4' %></li>        
+          <li class="nav-item active"><%= link_to "マイページ",users_user_path(current_user.id), class: 'btn btn-info mr-4' %></li> 
+          <li class="nav-item active"><%= link_to "コミュニティ",users_communities_path, class: 'btn btn-info mr-4' %></li> 
+          <li class="nav-item active"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-info' %></li> 
         <% elsif admin_signed_in? %>
-          <%= link_to "トップ", root_path, class: 'btn btn-info mr-4' %>
-          <%= link_to "コミュニティ一覧", admins_communities_path, class: 'btn btn-info mr-4' %>
-          <%= link_to "会員一覧", admins_communities_path, class: 'btn btn-info mr-4' %>
-          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-info' %>
+          <li class="nav-item active"><%= link_to "トップ", root_path, class: 'btn btn-info mr-4' %></li> 
+          <li class="nav-item active"><%= link_to "コミュニティ一覧", admins_communities_path, class: 'btn btn-info mr-4' %></li> 
+          <li class="nav-item active"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-info' %></li> 
         <% end %>
        </ul>
-    </div>
-  </nav>
+    </nav>
+ </div>
 </header> 
-    
+
+ <div class="container pt-3 pb-3">
     <%= yield %>
+ </div>  
     
 <footter>
-<div class = "text-center mt-5 pt-1 pb-2 bg-white text-primary"><h3>CommunityCommit</h3>
-</div>
+ <%= link_to root_path do %>
+ <div class = "text-center mt-5 pt-1 pb-2 text-primary"><h3>CommunityCommit</h3></div>
+  <% end %>
 </footter>
     
-    
-  </body>
+</body>
+
 </html>

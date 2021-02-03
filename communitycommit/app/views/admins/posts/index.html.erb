@@ -1,11 +1,8 @@
- <div class="container mt-5">
-  <div class="row">
-    <div class="col-md-5">
-      <h3 class="text-center bg-light"><strong>＜掲示板＞お知らせ一覧</strong></h3>
-    </div>
-  </div>
+<div class="row">
+ <div class="col">
+      <h3 class="text-center"><strong>＜掲示板＞お知らせ一覧</strong></h3>
    
-   <table class="table table-bordered">
+   <table class="table table-bordered bg-light">
     <tbody>
       <% @posts.each do |post| %>     
      <tr> 
@@ -15,5 +12,8 @@
       <% end %>
     </tbody>
    </table>
-    
+   
+  <%= link_to "お知らせ作成", new_admins_community_post_path, class: "btn btn-success btn-block" %>
+   
+ </div>  
 </div>

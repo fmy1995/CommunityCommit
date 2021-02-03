@@ -1,76 +1,63 @@
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-md-5">
-      <h3 class="text-center bg-light"><strong>コミュニティページ</strong></h3>
-    </div>
+<div class="row">
+  <div class="col-md-5">
+    <h3 class="text-center"><strong>コミュニティページ</strong></h3>
   </div>
-
-  <div class="row make">
-    <div class="col-5">
-      <table class="table table-borderless">
-        <tr>
-          <td><h5><strong>登録情報</strong></h5></td>
-        </tr>
-      </table>
-    </div>
-  </div>
+</div>
  
 <div class="row">
  <div class="col-9">
-   <table class="table table-bordered">
+ <h5><strong>登録情報</strong></h5>
+   <table class="table table-bordered bg-light">
     <tbody>
       <tr>
-       <th class="bg-light">コミュニティ名</th>
+       <th>コミュニティ名</th>
        <td><%= @community.name %></td>
        </tr>
        <tr>
-        <th class="bg-light">概要説明</th>
+        <th>概要説明</th>
         <td><%= @community.introduction %></td>
        </tr>
       </tbody>
     </table>
-
-     <%= link_to "編集する", edit_admins_community_path(@community), class: "btn btn-success mb-5" %>
-   </div> 
+     <%= link_to "編集する", edit_admins_community_path(@community), class: "btn btn-success btn-block mb-5" %>
  </div>
 </div>
 
-<div class="container">
 <div class="row">
  <div class="col-9">
-<h5><strong>お知らせ掲示板</strong><%= link_to "全てを表示", admins_community_posts_path(@community), class: "btn btn-success ml-2" %></h5>
+   <h5><strong>お知らせ掲示板</strong><%= link_to "全てを表示", admins_community_posts_path(@community), class: "btn btn-success ml-2" %></h5>
 
    <table class="table table-bordered">
     <tbody>
-     <% @posts.each do |post| %>     
-     <tr> 
+     <% @posts.each do |post| %>
+     <% if post.in_front == true %>
+     <tr class="bg-light"> 
      <td><%= link_to  admins_community_post_path(community_id: post.community_id, id: post.id)  do %><%= post.title %><% end %></td>
      <th><%= post.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d %H:%M:%S') %></th>
       </tr>
+      <% end %> 
      <% end %>     
      </tbody>
     </table>
     
- <%= link_to "お知らせ作成", new_admins_community_post_path(@community), class: "btn btn-success" %>
+ <%= link_to "お知らせ作成", new_admins_community_post_path(@community), class: "btn btn-success btn-block" %>
   </div>
  </div>
-</div>
 
-<div class="container mt-5">
- <div class="row">
+ <div class="row mt-5">
   <div class="col-9">
    <div class="panel-group mt-3" id="accordion">
     <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        所属人数<%= @community.belongs.count %>人  
+        <strong>所属人数<%= @community.belongs.count %>人</strong>  
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">▼</a>
       </h4>
     </div>
     <div id="collapse3" class="panel-collapse collapse in">
-      <div class="panel-body">
+      <div class="panel-body bg-light">
         <% @community.belongs.each do |community| %>    
-        <%= link_to admins_user_path(id: community.user.id) do %><%= community.user.name %><% end %>
+        <h5 class="ml-3"><%= link_to admins_user_path(id: community.user.id) do %><%= community.user.name %><% end %></h5>
         <% end %>
      </div>
     </div>

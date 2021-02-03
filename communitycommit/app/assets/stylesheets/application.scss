@@ -16,3 +16,21 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+.topbar {
+position: relative;
+min-height: 55px;
+margin-bottom: 20px;
+border: 1px solid transparent;
+/*ADD 220,220,220*/
+background-color: rgba(120,150,230,0.4);
+}
+
+.container {
+position: relative;
+min-height: 55px;
+margin-bottom: 20px;
+border: 1px solid transparent;
+/*ADD 220,220,220*/
+background-color: rgba(120,150,230,0.4);
+}

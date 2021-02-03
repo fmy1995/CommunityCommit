@@ -1,32 +1,23 @@
-<div class="container mt-5">
   <div class="row">
-    <div class="col-md-5">
-      <h3 class="text-center bg-light"><strong><%= @post.title %></strong></h3>
-    </div>
-  </div>
-  
-  <div class="row make">
-    <div class="col-5">
-      <table class="table table-borderless">
-        <tr>
-          <td><h5><strong>投稿日時</strong></h5></td>
-          <td><h5><strong><%= @post.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d %H:%M:%S') %></strong></h5></td>
-        </tr>
-      </table>
-    </div>
-  </div>  
- 
-<div class="row">
- <div class="col-9">
+    <div class="col">
+      <h3 class="text-center"><strong><%= @post.title %></strong></h3>
+
+  <table class="table table-borderless">
+    <tr>
+    <td><h5><strong>投稿日時</strong></h5></td>
+    <td><h5><strong><%= @post.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d %H:%M:%S') %></strong></h5></td>
+    </tr>
+  </table>
+
    <table class="table table-bordered">
     <tbody>
       <tr>
        <th class="bg-light">タイトル</th>
-       <td><%= @post.title %></td>
+       <td class="bg-light"><%= @post.title %></td>
       </tr>
       <tr>
        <th class="bg-light">掲示場所</th>
-       <td>
+       <td class="bg-light">
     <% if @post.in_front == true %>
       <i class="fas fa-bullseye red"></i>トップに掲示中
     <% elsif @post.in_front == false %>
@@ -37,24 +28,18 @@
       </tbody>
     </table>
 
- <div><%= @post.post_text %></div>
-
-    <%= attachment_image_tag @post, :image, size: "300x300" %>
-
-   </div> 
- </div>
- <%= link_to "編集する", edit_admins_community_post_path(@post), class: "btn btn-success mt-4" %>
- <%= link_to "削除する", admins_community_post_path(community_id: @post.community_id, id: @post.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger mt-4 destroy_book_#{@post.id}" %>
-
+ <div class="bg-light mt-2 mb-2 pl-3"><strong>お知らせ本文</strong></br><%= @post.post_text %></div>
+ <div class="image-box mt-3"><%= attachment_image_tag @post, :image, size: "300x300" %></div>
  
-<div class="container">
- <div class="row">
-  <div class="col-md-5 mt-3">
-  <h5>コメント</h5>
+ <%= link_to "編集する", edit_admins_community_post_path(@post), class: "btn btn-success mt-4 btn-lg" %>
+ <%= link_to "削除する", admins_community_post_path(community_id: @post.community_id, id: @post.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger btn-lg mt-4 destroy_book_#{@post.id}" %>
   </div>
- </div>
+</div> 
  
- <table class="table table-hover">
+ <div class="row mt-3">
+  <div class="col mt-3">
+    <h5><strong>コメント</strong></h5>
+ <table class="table table-hover bg-light">
   <tr>
    <th>氏名</th>
    <th>コメント</th>
@@ -66,5 +51,6 @@
   </tr>
 <% end %>  
 </table>
-</div> 
-</div> 
+<%= link_to "コミュニティトップに戻る", admins_community_path(id: @post.community.id), class: 'btn btn-info mb-2' %>
+ </div>
+</div>
