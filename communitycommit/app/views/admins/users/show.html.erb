@@ -1,12 +1,6 @@
-<div class="container mt-5">
   <div class="row">
     <div class="col-md-5">
-      <h3 class="text-center bg-light"><strong>ユーザーページ[<%= @user.name %>]</strong></h3>
-    </div>
-  </div>
-  
-  <div class="row">
-    <div class="col-5">
+      <h3 class="text-center g-lightb"><strong>ユーザーページ[<%= @user.name %>]</strong></h3>
       <table class="table table-borderless">
         <tr>
           <td><h5><strong>登録情報</strong></h5></td>
@@ -17,10 +11,10 @@
   
   <div class="row">
     <div class="col-9">
-      <table class="table table-bordered">
+      <table class="table table-bordered bg-light">
         <tbody>
           <tr>
-            <th class="bg-light tytle">氏名</th>
+            <th class="bg-light">氏名</th>
             <td><%= @user.name %></td>
           </tr>
           <tr>
@@ -43,22 +37,4 @@
       </table>
     </div>
   </div>
-</div>
-  
-<div class="container">    
-  <div class="row">
-   <div class="col-5">
-     
-    <table class="table table-bordered">
-    <tbody>  
-    <th class="bg-light">所属済コミュニティ</th>
-   <% @user.belongs.each do |user| %>    
-       <tr>
-  <td><%= link_to users_community_path(id: user.community.id) do %><%= user.community.name %><% end %></td>
-        </tr>
-   <% end %>       
-        </tbody>
-      </table>
-  </div>  
- </div>
 </div>

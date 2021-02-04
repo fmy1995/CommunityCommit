@@ -8,8 +8,6 @@ has_many :posts, dependent: :destroy
     belongs.where(user_id: user.id).exists?
   end
 
-belongs_to :user
-
   def self.search_for(content, method)
     if method == 'perfect'
       Community.where(name: content)

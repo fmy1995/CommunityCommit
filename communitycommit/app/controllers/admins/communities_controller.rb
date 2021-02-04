@@ -16,7 +16,7 @@ class Admins::CommunitiesController < ApplicationController
     @community = Community.new(community_params)
     @community.admin_id = current_admin.id
     if @community.save
-    redirect_to admins_communities_path
+      redirect_to admins_communities_path
     end
   end
 
