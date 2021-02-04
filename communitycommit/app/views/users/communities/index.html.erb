@@ -1,13 +1,17 @@
  <div class="row pb-2">
   <div class="col">
-   <h3 class="text-center mb-5"><strong>コミュニティ＜一覧＞検索窓設置予定　</strong></h3>
-
+   <h3 class="text-center"><strong>コミュニティ＜一覧＞</strong></h3>
+   
+ <div class= "col-4 mb-3">
+ <%= render 'layouts/search' %>
+</div>
 
  <table class="table table-hover">
    <thead class="bg-light">
     <tr>
      <th>コミュニティID</th>
      <th>コミュニティ名</th>
+     <th>詳細リンク</th>
     </tr>
    </thead>
    <% @communities.each do |community| %>
@@ -19,6 +23,8 @@
        <%= community.name %>
       <% end %>
      </td>
+     <td class="bg-light">
+    　 <%= link_to "詳細ページ", users_community_path(community.id), class: 'btn btn-info' %>
     </tr>
    </tbody>
    <% end %>

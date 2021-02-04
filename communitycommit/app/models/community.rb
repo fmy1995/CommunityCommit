@@ -10,4 +10,12 @@ has_many :posts, dependent: :destroy
 
 belongs_to :user
 
+  def self.search_for(content, method)
+    if method == 'perfect'
+      Community.where(name: content)
+    else
+      Community.where('name LIKE ?', '%'+content+'%')
+    end
+  end
+
 end

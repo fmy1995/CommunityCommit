@@ -33,6 +33,7 @@ devise_for :users, controllers: {
 }
 namespace :users do
 resources :users ,:only => [:show, :edit,:update]  
+get '/search', to: 'search#search'
 resources :communities, :only => [:index,:show] do
  resource :belongs, only: [:create, :destroy]
  resources :posts, :only => [:index,:show] do

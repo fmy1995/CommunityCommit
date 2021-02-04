@@ -1,0 +1,28 @@
+ <div class="row pb-2">
+  <div class="col">
+   <h3>【検索結果】検索ワード：<%= @content %></h3>
+   
+  <table class="table table-hover">
+   <thead class="bg-light">
+    <tr>
+     <th class="bg-light pl-4">ID</th>
+     <th>コミュニティ名</th>
+     <th>詳細リンク</th>
+     <th></th>
+    </tr>
+   </thead>
+    <% @records.each do |record| %>
+ <tbody>
+    <tr>
+     <td class="bg-light pl-4"><%= record.id %></td>  
+     <td class="bg-light"><%= link_to users_community_path(record) do %><%= record.name %><% end %></td>
+     <td class="bg-light"><%= link_to "詳細ページ", users_community_path(record), class: 'btn btn-info'%></td>
+     <td class="bg-light"></td>
+    </tr>
+   </tbody>
+   <% end %>
+  </table>
+  
+ </div>
+</div>
+ 

@@ -21,8 +21,9 @@
         <% if user_signed_in? %>
           <li class="nav-item active"><%= link_to "トップ", root_path, class: 'btn btn-info mr-4' %></li>        
           <li class="nav-item active"><%= link_to "マイページ",users_user_path(current_user.id), class: 'btn btn-info mr-4' %></li> 
-          <li class="nav-item active"><%= link_to "コミュニティ",users_communities_path, class: 'btn btn-info mr-4' %></li> 
-          <li class="nav-item active"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-info' %></li> 
+          <li class="nav-item active"><%= link_to "コミュニティ一覧",users_communities_path, class: 'btn btn-info mr-4' %></li> 
+          <li class="nav-item active"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-info mr-4' %></li>
+          <li class="nav-item active"><%= render 'layouts/search' %></li>
         <% elsif admin_signed_in? %>
           <li class="nav-item active"><%= link_to "トップ", root_path, class: 'btn btn-info mr-4' %></li> 
           <li class="nav-item active"><%= link_to "コミュニティ一覧", admins_communities_path, class: 'btn btn-info mr-4' %></li> 

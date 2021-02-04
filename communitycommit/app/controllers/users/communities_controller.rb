@@ -8,6 +8,11 @@ class Users::CommunitiesController < ApplicationController
     @posts = Community.find(params[:id]).posts
   end
   
+  def search
+    #Viewのformで取得したパラメータをモデルに渡す
+    @communities = Community.search(params[:search])
+  end
+  
   private
   def community_params
     params.require(:community).permit(:name, :introduction)
