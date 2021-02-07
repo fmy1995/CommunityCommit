@@ -1,3 +1,6 @@
+<div class="row ml-5">
+  <div class="col">
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -12,12 +15,12 @@
 </p>
 
 <p class = "description">
-  <strong>Description:</strong>
+  <strong>アンケート概要説明:</strong>
   <%= @questionary.description %>
 </p>
 
 <p class = "deadline">
-  <strong>Deadline:</strong>
+  <strong>締め切り日時:</strong>
   <%= @questionary.deadline %>
 </p>
 
@@ -46,12 +49,20 @@
 <hr>
 <% end %>
 
-<%= submit_tag '送信' %>
+<% if user_signed_in? %>
+<%= submit_tag '回答を送信する' %>
+<%= link_to 'コミュニティページに戻る', users_community_path(@questionary.community_id), class: 'btn btn-info m-3' %>
+<% end %>
 
 </form>
 
 </div>
 
+<% if admin_signed_in? %>
+<%= link_to 'タイトル、概要説明、締め切りを変える', edit_questionary_path(@questionary), class: 'btn btn-success m-3' %> |
+<%= link_to 'アンケートの結果を見る', questionary_result_path(@questionary), class: 'btn btn-success m-3' %> 
+<%= link_to 'コミュニティページに戻る', admins_community_path(@questionary.community_id), class: 'btn btn-info m-3' %>
+<% end %>
 
-<%= link_to 'Edit', edit_questionary_path(@questionary) %> |
-<%= link_to 'Back', admins_community_path(@questionary.community_id) %>
+</div>
+</div>

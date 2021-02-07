@@ -17,7 +17,7 @@
    <% @communities.each do |community| %>
    <tbody>
     <tr>
-     <td class="bg-light"> <%= community.id %></td>
+     <td class="pl-5 bg-light"><strong><%= community.id %></strong></td>
      <td class="bg-light">
     　 <%= link_to users_community_path(community.id) do %>
        <%= community.name %>

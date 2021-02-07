@@ -21,7 +21,7 @@ class QuestionaryItemsController < ApplicationController
         format.html { redirect_to '/questionary_choices/new/' + @questionary_item.id.to_s }
         format.json { render :show, status: :created, location: @questionary_item }
       else
-        format.html { render :new }
+        format.html { redirect_to request.referer}
         format.json { render json: @questionary_item.errors, status: :unprocessable_entity }
       end
     end

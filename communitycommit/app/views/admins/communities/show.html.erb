@@ -19,21 +19,29 @@
        </tr>
       </tbody>
     </table>
-     <%= link_to "編集する", edit_admins_community_path(@community), class: "btn btn-success btn-block mb-5" %>
+     <%= link_to "編集する", edit_admins_community_path(@community), class: "btn btn-success btn-block" %>
  </div>
 </div>
 
-<div class="row">
+<div class="row mt-5">
  <div class="col-9">
    <h5><strong>お知らせ掲示板</strong><%= link_to "全てを表示", admins_community_posts_path(@community), class: "btn btn-success ml-2" %></h5>
-
    <table class="table table-bordered">
+  　　<thead>
+   　 <tr class="bg-light">
+      <th>タイトル</th>
+      <th>掲載日</th>
+      <th colspan="2"></th>
+　　 </tr>
+ 　  </thead>    
     <tbody>
      <% @posts.each do |post| %>
      <% if post.in_front == true %>
      <tr class="bg-light"> 
      <td><%= link_to  admins_community_post_path(community_id: post.community_id, id: post.id)  do %><%= post.title %><% end %></td>
-     <th><%= post.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d %H:%M:%S') %></th>
+     <td><%= post.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d %H:%M:%S') %></td>
+     <td><%= link_to "編集する", edit_admins_community_post_path(post), class: "btn btn-success" %></td>
+     <td><%= link_to "削除する", admins_community_post_path(community_id: post.community_id, id: post.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger destroy_book_#{post.id}" %></td> 
       </tr>
       <% end %> 
      <% end %>     
@@ -41,6 +49,35 @@
     </table>
     
  <%= link_to "お知らせ作成", new_admins_community_post_path(@community), class: "btn btn-success btn-block" %>
+  </div>
+ </div>
+
+<div class="row mt-5">
+ <div class="col-9">
+  <h5><strong>アンケート</strong></h5>
+<table class="table table-bordered">
+  <thead>
+    <tr class="bg-light">
+      <th>タイトル</th>
+      <th>締め切り日</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @questionaries.each do |questionary| %>
+      <tr class="bg-light">
+       <% if questionary.community_id == @community.id %>
+        <td><%= questionary.title %></td>
+        <td><%= questionary.deadline %></td>
+        <td><%= link_to '詳細確認', questionary, class: "btn btn-success" %></td>
+        <td><%= link_to '削除する', questionary, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+      <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'アンケート作成', new_questionary_path, class: "btn btn-success btn-block" %>
   </div>
  </div>
 
@@ -65,35 +102,3 @@
  </div> 
 </div>
 </div>
-
-
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Deadline</th>
-      <th>Community</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @questionaries.each do |questionary| %>
-      <tr>
-       <% if questionary.community_id == @community.id %>
-        <td><%= questionary.title %></td>
-        <td><%= questionary.description %></td>
-        <td><%= questionary.deadline %></td>
-        <td><%= questionary.community_id %></td>
-        <td><%= link_to 'Show', questionary %></td>
-        <td><%= link_to 'Edit', edit_questionary_path(questionary) %></td>
-        <td><%= link_to 'Destroy', questionary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'New Questionary', new_questionary_path %>

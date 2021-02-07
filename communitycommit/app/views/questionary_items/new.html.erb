@@ -1,5 +1,16 @@
-<h1>質問の作成</h1>
+<h2 class="mb-3">質問の作成</h2>
+<div>
+アンケートの質問を１つずつ作成できます。
+『質問内容』を作成したら、『選択肢を作成する』ボタンをクリックして、選択肢を作成してください。
+</div>
 
 <%= render 'form', questionary_item: @questionary_item %>
 
-<%= link_to 'アンケートに戻る', questionary_path(questionary_id: @questionary_id) %>
+<div class="mt-3">
+選択肢を作成が終了したら、『アンケートを完成する』ボタンを押して、アンケートが完成します。</br>
+まだ、質問を加えたい場合は、『質問内容』を入力して、同様に選択肢を作成してください。</br>
+アンケートの質問は20個まで作成できます。
+</div>
+
+
+<%= link_to 'アンケートを完成する', questionary_path(questionary_id: @questionary_id), class: 'btn btn-success m-3' %>

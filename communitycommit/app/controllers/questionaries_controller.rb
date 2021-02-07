@@ -39,7 +39,7 @@ class QuestionariesController < ApplicationController
   def sendform
     id = params[:id]
     result = 'question_id:' + id
-    for i in 1..100
+    for i in 1..20
       str = 'r' + i.to_s
       if params[str] == nil then
         result += ',' + str + ':0'
@@ -74,7 +74,7 @@ class QuestionariesController < ApplicationController
   def destroy
     @questionary.destroy
     respond_to do |format|
-      format.html { redirect_to questionaries_url, notice: "Questionary was successfully destroyed." }
+      format.html { redirect_to request.referer, notice: "Questionary was successfully destroyed." }
       format.json { head :no_content }
     end
   end

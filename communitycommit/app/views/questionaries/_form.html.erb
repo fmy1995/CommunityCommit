@@ -11,27 +11,38 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_area :title %>
+  <div class="row">
+  　<div class="col">
+    <div class= "questionary-label"><%= form.label :"タイトル" %></div>
+    <div class= "questionary-field"><%= form.text_field :title, :size=>"40" %></div>
+  　</div>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  
+  <div class="row">
+  　<div class="col">
+    <div class= "questionary-label"><%= form.label :"概要説明" %></div>
+    <div class= "questionary-field"><%= form.text_area :description, :size=>"50" %></div>
+  　</div>
   </div>
-
-  <div class="field">
-    <%= form.label :deadline %>
+  
+  <div class="row">
+  　<div class="col">
+    <%= form.label :締め切り日時 %>
     <%= form.datetime_select :deadline %>
+  　</div>
   </div>
 
-  <div class="field">
-    <%= form.label :community_id %>
-    <%= form.number_field :community_id %>
+  <div class="row　mt-4">
+  　<div class="col">
+    <div class= "questionary-label"><%= form.label :"コミュニティID" %></div>
+    <div class= "questionary-label">アンケート作成を作成するコミュニティの『ID』を入力してください</div>
+    <div class= "questionary-field"><%= form.number_field :community_id %></div>
+  　</div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="row mt-2">
+  　<div class="col">
+    <%= form.submit :"質問を作成する" %>
+  　</div>
   </div>
 <% end %>

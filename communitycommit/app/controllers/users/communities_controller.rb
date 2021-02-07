@@ -6,6 +6,7 @@ class Users::CommunitiesController < ApplicationController
   def show
     @community = Community.find(params[:id])
     @posts = Community.find(params[:id]).posts
+    @questionaries = Questionary.all
   end
   
   def search

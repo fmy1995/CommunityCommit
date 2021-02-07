@@ -1,5 +1,11 @@
-<h1>New Questionary Choice</h1>
+<h2 class="mb-3">質問の作成</h2>
+<div>
+アンケートの質問の選択肢を１つずつ作成できます。</br>
+『選択肢の内容』を作成したら、『選択肢番号』を入力して、選択肢を作成してください。</br>
+選択肢番号は、１から順番に入力してください。
+</div>
+
 
 <%= render 'form', questionary_choice: @questionary_choice %>
 
-<%= link_to '次の質問をする', '/questionary_items/new/' + @questionary_item.questionary_id.to_s %>
+<%= link_to '次の質問内容を作成する', '/questionary_items/new/' + @questionary_item.questionary_id.to_s, class: 'btn btn-success m-3' %>

@@ -11,17 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
+<div class= "questionary-field">
+※このアンケート識別番号は<%= form.number_field :questionary_id %>です。
+この数字は変更しないでください。</div>
 
-  <div class="field">
-    <%= form.label :questionary_id %>
-    <%= form.number_field :questionary_id %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="row mt-3">
+  　<div class="col">
+    <div class= "questionary-label"><%= form.label :"質問内容" %>  </div>
+    <div class= "questionary-field"><%= form.text_area :content, :size=>"70" %>  </div>
   </div>
+</div>
+
+  <div class="row mt-2">
+  　<div class="col">
+    <%= form.submit :"選択肢を作成する" %>
+  </div>
+</div>
 <% end %>
