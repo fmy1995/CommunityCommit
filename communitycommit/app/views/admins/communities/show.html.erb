@@ -65,3 +65,35 @@
  </div> 
 </div>
 </div>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Deadline</th>
+      <th>Community</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @questionaries.each do |questionary| %>
+      <tr>
+       <% if questionary.community_id == @community.id %>
+        <td><%= questionary.title %></td>
+        <td><%= questionary.description %></td>
+        <td><%= questionary.deadline %></td>
+        <td><%= questionary.community_id %></td>
+        <td><%= link_to 'Show', questionary %></td>
+        <td><%= link_to 'Edit', edit_questionary_path(questionary) %></td>
+        <td><%= link_to 'Destroy', questionary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Questionary', new_questionary_path %>
