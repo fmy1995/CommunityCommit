@@ -1,12 +1,12 @@
 class Users::CommunitiesController < ApplicationController
   def index
-  @communities = Community.all
+  @communities = Community.page(params[:page]).per(20)
   end
 
   def show
     @community = Community.find(params[:id])
-    @posts = Community.find(params[:id]).posts
-    @questionaries = Questionary.all
+    @posts = Community.find(params[:id]).posts.page(params[:page]).per(5)
+    @questionaries = Questionary.page(params[:page]).per(5)
   end
   
   def search

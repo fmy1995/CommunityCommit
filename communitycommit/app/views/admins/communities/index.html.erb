@@ -26,5 +26,8 @@
    </tbody>
    <% end %>
   </table>
-    <%= link_to "新規コミュニティ作成", new_admins_community_path, class: 'btn btn-success btn-lg btn-block' %>    
+    <%= link_to "新規コミュニティ作成", new_admins_community_path, class: 'btn btn-success btn-lg btn-block' %>
+    
+   <%= paginate @communities %>
  </div>
+</div>

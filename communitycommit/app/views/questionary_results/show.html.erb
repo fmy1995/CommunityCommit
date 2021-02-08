@@ -1,15 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @questionary.title %></h1>
+<div class="row">
+  <div class="col">
 
-<table>
+<h2 class="mb-3"><%= @questionary.title %></h2>
+
+<table class="">
   <thead>
     <tr>
-      <th>Result</th>
+      <th>アンケート結果</th>
     </tr>
   </thead>
   
-  <tbody>
+  <tbody class="table table-hover bg-light">
     <% @questionary_results.each do |result| %>
     <tr>
       <td><%= result.result %></td>
@@ -20,3 +23,7 @@
 
 <br>
 <a href = "/questionary_results/calc/<%= @questionary.id %>">CalcData </a>
+
+
+ </div>
+</div>

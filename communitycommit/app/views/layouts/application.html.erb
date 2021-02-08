@@ -10,40 +10,47 @@
   </head>
   
 <body class="jumbotron jumbotron-fluid" style="background: url(<%= asset_path "background-sky.jpg" %>); background-size:cover;">
-    
-<header class ="topbar text-white mb-3">
-<div class = "text-center">
-  <h1>CommunityCommit</h1>
-  <h3>コミュニティコミット</h3></div> 
+<!-- ローディング画面 -->
+<div id="loading">
+  <div class="spinner"></div>
+</div>
+ 
+<header>
 　　<nav class="navbar navbar-expand-sm navbar-dark">
         <div class="collapse navbar-collapse justify-content-center">
             <ul class="navbar-nav">
         <% if user_signed_in? %>
+          <h2 class="nav-item active mr-4"><%= link_to root_path do %>CommunityCommit<% end %></h2>
           <li class="nav-item active"><%= link_to "トップ", root_path, class: 'btn btn-info mr-4' %></li>        
           <li class="nav-item active"><%= link_to "マイページ",users_user_path(current_user.id), class: 'btn btn-info mr-4' %></li> 
           <li class="nav-item active"><%= link_to "コミュニティ一覧",users_communities_path, class: 'btn btn-info mr-4' %></li> 
           <li class="nav-item active"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-info mr-4' %></li>
           <li class="nav-item active"><%= render 'layouts/search' %></li>
         <% elsif admin_signed_in? %>
+          <h2 class="nav-item active mr-4"><%= link_to root_path do %>CommunityCommit<% end %></h2>
           <li class="nav-item active"><%= link_to "トップ", root_path, class: 'btn btn-info mr-4' %></li> 
           <li class="nav-item active"><%= link_to "コミュニティ一覧", admins_communities_path, class: 'btn btn-info mr-4' %></li> 
-          <li class="nav-item active"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-info' %></li> 
+          <li class="nav-item active"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-info' %></li>
+          <h4 class="nav-item text-warning ml-5">管理者としてログイン中</h4>
+        <% else %> 
+         <%= link_to root_path do %><div class = "text-center text-light">
+         <h1 class = "text-center text-light"> CommunityCommit</h1>
+         <h3>コミュニティコミット</h3></div><% end %>      
         <% end %>
        </ul>
     </nav>
  </div>
 </header> 
 
- <div class="container pt-3 pb-3">
+ <div class="container pt-3 pb-3 pl-5 pr-5">
     <%= yield %>
  </div>  
     
-<footter>
+<footer>
  <%= link_to root_path do %>
- <div class = "text-center mt-5 pt-1 pb-2 text-primary"><h3>CommunityCommit</h3></div>
+ <div class = "text-center text-primary"><h3>CommunityCommit</h3></div>
   <% end %>
-</footter>
-    
+</footer>
 </body>
 
 </html>

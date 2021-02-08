@@ -1,7 +1,7 @@
 class Users::PostsController < ApplicationController
     
 def index
- @posts = Community.find(params[:community_id]).posts
+ @posts = Community.find(params[:community_id]).posts.page(params[:page]).per(20)
  
 end
 

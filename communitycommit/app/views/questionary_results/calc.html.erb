@@ -9,20 +9,25 @@
 １つしか回答がないものは、何も選択されていない（問題が存在しない）と考えてください</p>
 
 <table>
-    <tr><th>質問ID</th><th>集計</th>
+  <tr>
+    <th>質問ID</th>
+    <th>集計</th>
+  </tr>
     <% @calc.each do |ky, vl| %>
-    
-    <th><%= ky %></th>
-    <table><tr>
+  <tr>
+    <td><%= ky %></td>
+    <td>
+      <table>
+        <tr>
         <% for v in vl %>
-        <td><%= v.to_i %></td>
+          <td><%= v.to_i %></td>
         <% end %>
-     </tr>
+        </tr>
     </table>
-    </td></tr>
+    </td>
+  </tr>
  <% end %> 
 </table>
 
-    
 </div>
 </div>
