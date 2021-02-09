@@ -1,46 +1,43 @@
- 
  <div class="row">
-   <div class="col-12">  
-     <div class="jumbotron" style="background: url(<%= asset_path "top1.jpg" %>) center; background-size:cover;">  
-       <h3 class="text-left">ようこそ<strong>コミコミ</strong>へ</h3>
+  <div class="col-12">  
+   
+     <div class="jumbotron" style="background: url(<%= asset_path "top1.jpg" %>) center; background-size:cover;" id="Top">  
+       <h3 class="text-left text-white">ようこそ<strong>コミュニティコミット</strong>へ</h3>
      </div>
 
-  <div class="main-text ml-4">
+  <div class="main-text text-center mb-5">
     <h5>
-    このサイトは、マンション管理組合の運営を支援する掲示板サイトです。</br>
-    ご使用方法は、本ページ下記にてご確認ください。      
+    <strong>このサイトは、マンション管理組合の運営を支援する掲示板サイトです。</br>
+    お知らせやアンケートを掲示して、円滑なマンションライフをサポートいたします。</br>
+    ご使用方法は、本ページ下記にてご確認ください。</strong>
     </h5>
   </div>
   
   <div class="login-box mt-3 mb-5 ml-4">
   <% if user_signed_in? %>
-   <h5 class="text-left mt-3">一般ユーザー</h5>
+   <h4 class="text-left mt-3"><strong>一般ユーザー</strong></h4>
     <%= link_to "新規登録（一般ユーザー）", new_user_registration_path, class: 'btn btn-primary btn-lg' %>
-    <%= link_to "ログイン（一般ユーザー）", new_user_session_path, class: 'btn btn-primary btn-lg' %>
+    <%= link_to "ログイン（ユーザー）", new_user_session_path, class: 'btn btn-primary btn-lg' %>
   <% elsif admin_signed_in? %>
-   <h5 class="text-left mt-3">管理者（コミュニティ代表）</h5>
+   <h4 class="text-left mt-3"><strong>管理者（コミュニティ代表）</strong></h4>
     <%= link_to "新規登録（管理者）", new_admin_registration_path, class: 'btn btn-warning btn-lg' %>
     <%= link_to "ログイン（管理者）", new_admin_session_path, class: 'btn btn-warning btn-lg' %>
   <% elsif %> 
-  <h5 class="text-left mt-3">一般ユーザー</h5>
+  <h4 class="text-left mt-3"><strong>一般ユーザー</strong></h4>
     <%= link_to "新規登録（一般ユーザー）", new_user_registration_path, class: 'btn btn-primary btn-lg' %>
     <%= link_to "ログイン（一般ユーザー）", new_user_session_path, class: 'btn btn-primary btn-lg' %> 
-  <h5 class="text-left mt-3">管理者（コミュニティ代表）</h5>
+  <h4 class="text-left mt-3"><strong>管理者（コミュニティ代表）</strong></h4>
     <%= link_to "新規登録（管理者）", new_admin_registration_path, class: 'btn btn-warning btn-lg' %>
     <%= link_to "ログイン（管理者）", new_admin_session_path, class: 'btn btn-warning btn-lg' %>
    <% end %>
   </div>
-</div>
-</div>
-
- <div class="row">
-   <div class="col-12">  
-     <div class="jumbotron" style="background: url(<%= asset_path "tile.jpg" %>) bottom; background-size:content">  
-       <h3 class="text-left"><strong>ご使用方法</strong>＜登録フォーム＞</h3>
-     </div>
+  
+  <div class="jumbotron mb-3" style="background: url(<%= asset_path "tile.jpg" %>) bottom; background-size:content">  
+    <h3 class="text-left text-white"><strong>ご使用方法について</strong></h3>
+  </div>
 
   <div class="main-text ml-4">
-    <h5>
+    <h5><strong>
       このサイトは、管理者が『コミュニティ』を作成し、</br>
     一般ユーザーがその『コミュニティ』に所属することで、情報の共有を図れる掲示板です。</br>
     </br>
@@ -50,22 +47,45 @@
     <% elsif admin_signed_in? %>
     <% elsif %> 
     <%= link_to "新規登録（管理者）", new_admin_registration_path, class: 'btn btn-warning btn-block mt-4' %></br>
-    <% end %>  
-      </h5>  
-  </div> 
-  
-    <div class="main-text ml-4">  
-       <h5> 
+    <% end %> 
     そのほかの方は、『一般ユーザー』として、ご登録いただき、</br>
     『管理者』が作成した『コミュニティ』ページにて、『所属』ボタンを押し、所属してください。</br>
-    それ以降は、一般ユーザーは、マイページから、所属しているコミュニティを確認できます。</br>
+    それ以降は、一般ユーザー様は、マイページから、所属しているコミュニティを確認できます。</br>
     <% if user_signed_in? %>
     <% elsif admin_signed_in? %>
     <% elsif %>    
-    <%= link_to "新規登録（一般ユーザー）", new_user_registration_path, class: 'btn btn-primary btn-block mt-4' %>
-    <% end %>  
-    </h5>
+    <%= link_to "新規登録（一般ユーザー）", new_user_registration_path, class: 'btn btn-primary btn-block mt-4 mb-5' %>
+    <% end %>
+    </strong></h5> 
   </div>
+  
+ <div class="jumbotron mt-5" style="background: url(<%= asset_path "tile.jpg" %>) bottom; background-size:content">  
+  <h3 class="text-left text-white"><strong>登録後のご利用可能機能について</strong></h3>
+ </div> 
+  
+  <div class="main-text ml-4">
+   <h5><strong>
+    管理者様は、コミュニティを作成後、そのコミュニティにて『お知らせ』を作成できます。</br>
+    そのお知らせはコミュニティごとのページに掲載されます。</br>
+    お知らせ作成の際に、重要度を『高』に設定いただくと、そのコミュニティページトップに掲載します。</br>
+    重要度を『低』とした場合はお知らせ一覧のみの掲載となります。</br>
+    コミュニティページトップのお知らせは、新しいお知らせから順番に10個まで掲示されます。</br>
+    アンケートの場合は、新しいものから5個までが掲示されます。
+   </strong></h5> 
+   
+   <h5><strong>
+    一般ユーザー様は、所属したコミュニティのお知らせをコミュニティページの
+    お知らせ掲示板にて確認することができます。また、ユーザー様は各お知らせにコメントをすることや、
+    アンケートに回答することができます。
+   </strong></h5>
+  </div>
+
+  
+  
+  
+  
+  
+  
   
  </div>
 </div>

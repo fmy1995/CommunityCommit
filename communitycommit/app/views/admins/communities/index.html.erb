@@ -1,19 +1,25 @@
 <div class="row">
-  <div class="col-3">
-  
-   <h3 class="text-center bg-light"><strong>コミュニティ</strong></h3>
+  <div class="col">
+   <h3 class="text-center"><strong>コミュニティ　一覧ページ</strong></h3>
+   <div class="mb-4">
+   <h4 class="text-center"> あなたが作成したコミュニティのみが表示されます。</br>
+    『新規コミュニティ作成』ボタンを押して、コミュニティを作成してください。
+   </h4>
+   </div>
+   
   </div>
  </div>
+
  <table class="table table-hover bg-light">
    <thead>
     <tr>
      <th>コミュニティID</th>
      <th>コミュニティ名</th>
      <th></th>
-     <th></th>
     </tr>
    </thead>
-   <% @communities.each do |community| %>
+ <% @communities.each do |community| %>
+   <% if community.admin == current_admin %> 
    <tbody>
     <tr>
      <td> <%= community.id %></td>
@@ -22,9 +28,12 @@
        <%= community.name %>
       <% end %>
      </td>
+     <td>
+    　 <%= link_to "詳細ページ",admins_community_path(community.id), class: 'btn btn-info' %></td>
     </tr>
    </tbody>
    <% end %>
+  <% end %> 
   </table>
     <%= link_to "新規コミュニティ作成", new_admins_community_path, class: 'btn btn-success btn-lg btn-block' %>
     

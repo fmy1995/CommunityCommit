@@ -5,20 +5,42 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "pt-4" }) do |f| %>
 <%= render "users/shared/error_messages", resource: resource %>
 
+  <div class="row mt-4">
+  <div class="col">
+  <h5><strong>『 名前』『メールアドレス』『パスワード』は入力必須項目です。</br>ご登録後にもマイページで編集が可能です。</strong></h5>
+   </div> 
+  </div>
+
   <div class="row my-2">
   <div class="col-md-6">
     <div class= "sing-up-label"><%= f.label :"名前"%></div>
-    <div class= "sing-up-input"><%= f.text_field :name, autofocus: true, autocomplete: "name"%></div>
+    <div class= "sing-up-input"><%= f.text_field :name, autofocus: true, autocomplete: "name", :size=>"40"%></div>
     </div>
   </div>
 
   <div class="row my-2">
   <div class="col-md-6">
     <div class= "sing-up-label"><%= f.label :"メールアドレス"%></div>
-    <div class= "sing-up-input"><%= f.email_field :email, autofocus: true, autocomplete: "email"%></div>
+    <div class= "sing-up-input"><%= f.email_field :email, autofocus: true, autocomplete: "email", :size=>"40"%></div>
    </div> 
   </div>
 
+  <div class="row my-2">
+  <div class="col-md-12">
+    <div class= "sing-up-label"><%= f.label :"パスワード(６文字以上)" %></div>
+    <div class= "sing-up-input"><%= f.password_field :password, autocomplete: "new-password", :size=>"40" %></div>
+
+    <div class= "sing-up-label"><%= f.label :"パスワード(確認のため、上記と同じパスワードを入力してください)"%></div>
+    <div class= "sing-up-input"><%= f.password_field :password_confirmation, autocomplete: "new-password", :size=>"40"%></div>
+  </div>
+  </div>
+  
+  <div class="row mt-4">
+  <div class="col">
+  <h5><strong>以下『 郵便番号』『住所』『電話番号』の入力は任意です。</br>ご登録後にもマイページで編集が可能です。</strong></h5>
+   </div> 
+  </div>
+  
   <div class="row my-2">
   <div class="col-md-6">
     <div class= "sing-up-label"><%= f.label :"郵便番号(ハイフンなし)" %></div>
@@ -39,21 +61,13 @@
     <div class= "sing-up-input"><%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", :size=>"40"  %></div>
    </div> 
   </div>
-  <div class="row my-2">
-  <div class="col-md-6">
-    <div class= "sing-up-label"><%= f.label :"パスワード(６文字以上)" %></div>
-    <div class= "sing-up-input"><%= f.password_field :password, autocomplete: "new-password" %></div>
 
-    <div class= "sing-up-label"><%= f.label :"パスワード(確認のため、上記と同じパスワードを入力してください)"%></div>
-    <div class= "sing-up-input"><%= f.password_field :password_confirmation, autocomplete: "new-password"%></div>
-  </div>
-  </div>
 
-  <div class="actions row">
+  <div class="actions row mt-5">
   <div class="col-md-6"> 
     <div class= "sing-up-label"></div>
     <div class= "sign-up-input-label"></div>
-    <%= f.submit "新規登録", class: "btn btn-success btn-lg" %>
+    <%= f.submit "新規登録", class: "btn btn-success btn-lg btn-block" %>
   </div>
 　</div>
 <% end %>
