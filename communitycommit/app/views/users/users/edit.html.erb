@@ -1,3 +1,4 @@
+<% if @user == current_user %> 
 <div class ="row">
  <div class="col">
    
@@ -36,3 +37,10 @@
       
   </div>
 </div>
+
+ <% else %>
+ 
+         <div class = "text-center">
+         <h3><strong>ほかのユーザーの情報は見れません</strong></h3></div>  
+ 
+ <% end %> 

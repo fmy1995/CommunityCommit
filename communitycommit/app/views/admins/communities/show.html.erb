@@ -1,10 +1,11 @@
+<% if @community.admin == current_admin %>
 <div class="row">
   <div class="col-md-5">
     <h2 class="text-center mb-5"><strong><%= @community.name %>ページ</strong></h2>
   </div>
 </div>
  
-<div class="row">
+<div class="row border-bottom border-info">
  <div class="col">
  <h5><strong>登録情報</strong></h5>
    <table class="table table-bordered bg-light">
@@ -23,7 +24,7 @@
  </div>
 </div>
 
-<div class="row mt-5">
+<div class="row mt-5 border-bottom border-info">
  <div class="col">
    <h5><strong>お知らせ掲示板</strong><%= link_to "全てを表示", admins_community_posts_path(@community), class: "btn btn-success ml-2" %></h5>
    <table class="table table-bordered">
@@ -102,3 +103,9 @@
  </div> 
 </div>
 </div>
+ <% else %>
+ 
+ <div class = "text-center">
+ <h3><strong>あなたが作成したコミュニティではありません</strong></h3></div>  
+ 
+ <% end %> 

@@ -1,4 +1,5 @@
 class Users::CommunitiesController < ApplicationController
+  before_action :authenticate_user!
   def index
   @communities = Community.page(params[:page]).per(20)
   end

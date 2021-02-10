@@ -1,5 +1,5 @@
  <p id="notice"><%= notice %></p> 
-<div class="row">
+<div class="row border-bottom border-info">
  <div class="col">
       <h3 class="text-center mt-1"><strong><%= @community.name %>コミュニティページ</strong></h3>
         <% if @community.belonged_by?(current_user) %>
@@ -33,7 +33,7 @@
   </div>
 </div>    
     
-<div class="row mt-2">
+<div class="row mt-2 border-bottom border-info">
   <div class="col">
 　 <h5><strong>お知らせ掲示板</strong></h5>
    <table class = "table table-bordered">
@@ -54,7 +54,7 @@
     <% end %> 
      </tbody>
     </table>
-   <%= link_to "全てのお知らせを表示", users_community_posts_path(@community), class: "btn btn-success btn-block" %>
+   <%= link_to "全てのお知らせを表示", users_community_posts_path(@community), class: "btn btn-success btn-block mb-4" %>
   </div>
 </div>
 

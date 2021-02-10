@@ -1,11 +1,16 @@
  <div class="row">
   <div class="col-12">  
    
-     <div class="jumbotron" style="background: url(<%= asset_path "top1.jpg" %>) center; background-size:cover;" id="Top">  
-       <h3 class="text-left text-white">ようこそ<strong>コミュニティコミット</strong>へ</h3>
-     </div>
+<div class="jumbotron" style="background: url(<%= asset_path "top1.jpg" %>) bottom; background-size:cover;">  
+  <div>
+    <h3 class="display-4 text-white">小さなコミュニティに大きな関心を</h3>
+    <p class="lead text-white"><strong>コミュニティコミットへようこそ</strong></p>
+  </div>
+</div> 
+  </div>
+</div> 
 
-  <div class="main-text text-center mb-5">
+  <div class="main-text text-center border-bottom border-info mb-3 pb-2">
     <h5>
     <strong>このサイトは、マンション管理組合の運営を支援する掲示板サイトです。</br>
     お知らせやアンケートを掲示して、円滑なマンションライフをサポートいたします。</br>
@@ -13,30 +18,40 @@
     </h5>
   </div>
   
-  <div class="login-box mt-3 mb-5 ml-4">
+ <div class ="row mb-5">
   <% if user_signed_in? %>
-   <h4 class="text-left mt-3"><strong>一般ユーザー</strong></h4>
-    <%= link_to "新規登録（一般ユーザー）", new_user_registration_path, class: 'btn btn-primary btn-lg' %>
-    <%= link_to "ログイン（ユーザー）", new_user_session_path, class: 'btn btn-primary btn-lg' %>
+   <div class="col-6">
+   <h4 class="text-left mt-3"><strong>一般ユーザー（お知らせ等の確認のみ）</strong></h4>
+    <%= link_to "新規登録（ユーザー）", new_user_registration_path, class: 'btn btn-primary btn-lg mb-2' %>
+    <%= link_to "ログイン（ユーザー）", new_user_session_path, class: 'btn btn-primary btn-lg mb-2' %>
+   </div> 
   <% elsif admin_signed_in? %>
+  <div class="col-6">
    <h4 class="text-left mt-3"><strong>管理者（コミュニティ代表）</strong></h4>
-    <%= link_to "新規登録（管理者）", new_admin_registration_path, class: 'btn btn-warning btn-lg' %>
-    <%= link_to "ログイン（管理者）", new_admin_session_path, class: 'btn btn-warning btn-lg' %>
-  <% elsif %> 
-  <h4 class="text-left mt-3"><strong>一般ユーザー</strong></h4>
-    <%= link_to "新規登録（一般ユーザー）", new_user_registration_path, class: 'btn btn-primary btn-lg' %>
-    <%= link_to "ログイン（一般ユーザー）", new_user_session_path, class: 'btn btn-primary btn-lg' %> 
+    <%= link_to "新規登録（管理者）", new_admin_registration_path, class: 'btn btn-warning btn-lg mb-2' %>
+    <%= link_to "ログイン（管理者）", new_admin_session_path, class: 'btn btn-warning btn-lg mb-2' %>
+   </div>
+  <% elsif %>
+  <div class="col-6">
+  <h4 class="text-left mt-3"><strong>一般ユーザー（お知らせ等の確認のみ）</strong></h4>
+    <%= link_to "新規登録（ユーザー）", new_user_registration_path, class: 'btn btn-primary btn-lg mb-2' %>
+    <%= link_to "ログイン（ユーザー）", new_user_session_path, class: 'btn btn-primary btn-lg mb-2' %>
+   </div>
+    <div class="col-6">
   <h4 class="text-left mt-3"><strong>管理者（コミュニティ代表）</strong></h4>
-    <%= link_to "新規登録（管理者）", new_admin_registration_path, class: 'btn btn-warning btn-lg' %>
-    <%= link_to "ログイン（管理者）", new_admin_session_path, class: 'btn btn-warning btn-lg' %>
+    <%= link_to "新規登録（管理者）", new_admin_registration_path, class: 'btn btn-warning btn-lg mb-2' %>
+    <%= link_to "ログイン（管理者）", new_admin_session_path, class: 'btn btn-warning btn-lg mb-2' %>
+    </div>
    <% end %>
-  </div>
-  
-  <div class="jumbotron mb-3" style="background: url(<%= asset_path "tile.jpg" %>) bottom; background-size:content">  
-    <h3 class="text-left text-white"><strong>ご使用方法について</strong></h3>
+ </div> 
+ 
+ <div class="row">
+  <div class="cal-12">
+  <div class="jumbotron mb-3" style="background: url(<%= asset_path "glass.jpg" %>) top; background-size:cover">  
+    <h3 class="text-left text-white"><strong>ご登録について</strong></h3>
   </div>
 
-  <div class="main-text ml-4">
+  <div class="main-text ml-4  border-bottom border-info mb-3 pb-2">
     <h5><strong>
       このサイトは、管理者が『コミュニティ』を作成し、</br>
     一般ユーザーがその『コミュニティ』に所属することで、情報の共有を図れる掲示板です。</br>
@@ -59,8 +74,8 @@
     </strong></h5> 
   </div>
   
- <div class="jumbotron mt-5" style="background: url(<%= asset_path "tile.jpg" %>) bottom; background-size:content">  
-  <h3 class="text-left text-white"><strong>登録後のご利用可能機能について</strong></h3>
+ <div class="jumbotron mt-5" style="background: url(<%= asset_path "flower.jpg" %>) center; background-size:cover">   
+  <h3 class="text-left"><strong>登録後のご利用可能機能について</strong></h3>
  </div> 
   
   <div class="main-text ml-4">
@@ -79,13 +94,15 @@
     アンケートに回答することができます。
    </strong></h5>
   </div>
-
-  
-  
-  
-  
-  
-  
-  
- </div>
+</div> 
 </div>
+
+<div class ="row mt-3">
+ <div class="col-5 ml-5 ">
+<%= image_tag 'postnew.png', size: '400x300', style: 'background-image'%>
+ </div> 
+ <div class="col-5">
+<%= image_tag 'post.png', size: '400x300', style: 'background-image'%>
+ </div> 
+</div>  
+

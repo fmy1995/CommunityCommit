@@ -1,3 +1,4 @@
+<% if @community.admin == current_admin %>
 <div class="row">
   <div class="col">
      <h3><strong>コミュニティ編集</strong></h3>
@@ -18,3 +19,9 @@
         
 　</div>
 </div>
+ <% else %>
+ 
+ <div class = "text-center">
+ <h3><strong>あなたが作成したコミュニティではありません</strong></h3></div>  
+ 
+ <% end %> 
