@@ -25,12 +25,14 @@
 
 ### ターゲットユーザ
 マンションの所有者、賃借人等
+マンション管理組合の高齢化も考慮して、お年寄りもターゲットに。
 
 ### 主な利用シーン
 月々の理事会での決定事項（工事の有無や日程、アンケート配布等）のお知らせをリアルタイムで発信できる。
 本年度の理事長が誰かを周知し、マンション内での責任者及び報告者が確認できる。
 
 ## 設計書
+https://docs.google.com/spreadsheets/d/1wwibrYmU5ubFQ3rhGVRWxpLZaTJXh6t-ECtjyG1SsPc/edit#gid=0
 ER図
 フレームワーク
 アプリケーション詳細設計書
@@ -45,7 +47,3 @@ https://docs.google.com/spreadsheets/d/1HKwBfyalI_BtU9LDsYYOziaQSI-bWfTwcIkhbWuV
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-
-## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
