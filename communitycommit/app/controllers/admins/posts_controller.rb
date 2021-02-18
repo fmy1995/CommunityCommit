@@ -2,6 +2,7 @@ class Admins:: PostsController < ApplicationController
    before_action :authenticate_admin!   
 def index
  @posts = Community.find(params[:community_id]).posts.page(params[:page]).per(20)
+ @community = Community.find(params[:community_id])
 end
 
 def show

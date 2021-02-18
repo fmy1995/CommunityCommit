@@ -2,7 +2,7 @@ class Users::PostsController < ApplicationController
    before_action :authenticate_user!   
 def index
  @posts = Community.find(params[:community_id]).posts.page(params[:page]).reverse_order.per(20)
- 
+ @community = Community.find(params[:community_id])
 end
 
 def show
