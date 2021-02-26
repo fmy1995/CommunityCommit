@@ -65,14 +65,14 @@
    <% end %>    
    </table>
 
+ <%= form_with model:[@post,@post_comment], url: users_community_post_post_comments_path(post_id: @post.id), mthod: :post, local:true do |f| %>
  <table>
    <tr>
-    <%= form_with model:[@post,@post_comment], url: users_community_post_post_comments_path(post_id: @post.id), mthod: :post, local:true do |f| %>
     <td><%= f.text_area :comment, size:"60x2" %></td>
     <td><%= f.submit 'コメントを送信', class: "btn btn-success" %></td>
-    <% end %>
    </tr>
  </table>
+<% end %>
 
   </div>
 </div>
