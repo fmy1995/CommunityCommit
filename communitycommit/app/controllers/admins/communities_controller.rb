@@ -1,5 +1,6 @@
 class Admins::CommunitiesController < ApplicationController
     before_action :authenticate_admin!
+    
   def index
   @communities = Community.page(params[:page]).per(20)  
   end
