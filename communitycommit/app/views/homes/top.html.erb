@@ -22,8 +22,7 @@
   <% if user_signed_in? %>
    <div class="col-6">
    <h4 class="text-left mt-3"><strong>一般ユーザー（お知らせ等の確認のみ）</strong></h4>
-    <%= link_to "新規登録（ユーザー）", new_user_registration_path, class: 'btn btn-primary btn-lg mb-2' %>
-    <%= link_to "ログイン（ユーザー）", new_user_session_path, class: 'btn btn-primary btn-lg mb-2' %>
+    <%= link_to "ログイン中です", users_user_path(current_user.id), class: 'btn btn-primary btn-lg mb-2' %>
    </div> 
   <% elsif admin_signed_in? %>
   <div class="col-6">

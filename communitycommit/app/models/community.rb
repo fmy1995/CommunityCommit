@@ -5,6 +5,8 @@ has_many :posts, dependent: :destroy
 has_many :belongs, dependent: :destroy
 has_many :questionaries, dependent: :destroy
    
+  validates :name, presence: true
+   
   def belonged_by?(user)
     belongs.where(user_id: user.id).exists?
   end

@@ -20,6 +20,9 @@ class Admins::CommunitiesController < ApplicationController
     @community.admin_id = current_admin.id
     if @community.save
       redirect_to admins_communities_path
+    else
+     flash[:notice] = "※コミュニティ名を入れてください"
+     render 'new'
     end
   end
 
@@ -29,8 +32,13 @@ class Admins::CommunitiesController < ApplicationController
 
   def update
     @community = Community.find(params[:id])
-    @community.update(community_params)
+    
+    if @community.update(community_params)
     redirect_to admins_community_path(@community)
+    else
+     flash[:notice] = "※コミュニティ名を入れてください"
+     render 'edit'
+    end
   end
 
   private

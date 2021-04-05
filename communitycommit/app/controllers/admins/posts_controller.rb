@@ -21,7 +21,9 @@ def create
  @post.admin_id = current_admin.id
  @post.community_id = @community.id
  if @post.save
- redirect_to admins_community_posts_path
+ else
+  flash[:notice] = "※タイトルを入れてください"
+ render 'new'
  end
 end 
 
@@ -33,7 +35,10 @@ def update
  @post = Post.find(params[:id])
  if @post.update(post_params)
  redirect_to admins_community_post_path(@post)
- end
+ else
+  flash[:notice] = "※タイトルを入れてください"
+ render 'edit'
+ end 
 end
 
 def destroy
