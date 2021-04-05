@@ -1,24 +1,61 @@
-# README
+# コミュニティコミット
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+マンション管理組合のコミュニティプラットフォーム
+管理組合内での状況共有を活発に！！
+マンション内で自身の住んでいるマンションなのに
+無関心な人は思いのほか多く、今年の理事長も知らない人も珍しくない…。
+そんな現状を変えるには、少しでも自分のマンションのことを
+知ることが重要だと感じます。
+必要な情報が簡単に見えるようになることが無関心を減らす第一歩です。
 
-Things you may want to cover:
+### サイトテーマ
+小さなコミュニティに大きな関心を
 
-* Ruby version
+### テーマを選んだ理由
+私は前職にマンション管理会社の営業をしていました。
+その中で感じたのは、「自身が住んでいるのにも関わらずマンションに無関心な人」が
+とても多いことです。
+掲示板やお知らせを見ない人、その年の理事長も知らない人は、
+何か問題が発生しても何処に相談していいのか、すぐに分かりません。
+また管理会社も、理事長や所有者たちの承認や周知を必要とするため、すぐに解決とはいきません。
+コミュニティ内の情報共有を活性化することで、問題解決が早くなることを期待して
+このテーマを選びました。
 
-* System dependencies
 
-* Configuration
+### ターゲットユーザ
+マンションの所有者、賃借人等
+マンション管理組合の高齢化も考慮して、お年寄りもターゲットに。
 
-* Database creation
+### 主な利用シーン
+月々の理事会での決定事項（工事の有無や日程、アンケート配布等）のお知らせをリアルタイムで発信できる。
+本年度の理事長が誰かを周知し、マンション内での責任者及び報告者が確認できる。
 
-* Database initialization
 
-* How to run the test suite
+## 機能一覧
+- ユーザーおよび管理者登録
+- コミュニティ作成
+- コミュニティへの所属
+- お知らせ投稿
+- お知らせの種類（重要度）選択可能
+- お知らせへのコメント
+- アンケート作成
+- アンケート回答
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## 設計書
+https://docs.google.com/spreadsheets/d/1wwibrYmU5ubFQ3rhGVRWxpLZaTJXh6t-ECtjyG1SsPc/edit#gid=0
+ER図
+フレームワーク
+アプリケーション詳細設計書
+テーブル定義書
 
-* ...
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1HKwBfyalI_BtU9LDsYYOziaQSI-bWfTwcIkhbWuVCTc/edit#gid=0
+
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
