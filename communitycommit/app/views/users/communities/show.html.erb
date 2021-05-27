@@ -1,21 +1,21 @@
  <p id="notice"><%= notice %></p> 
 <div class="row border-bottom border-info">
  <div class="col">
-      <h3 class="text-center mt-1"><strong><%= @community.name %>コミュニティページ</strong></h3>
-        <% if @community.belonged_by?(current_user) %>
-    <p class="mt-3">
+   <h3 class="text-center mt-1"><strong><%= @community.name %>コミュニティページ</strong></h3>
+    <% if @community.belonged_by?(current_user) %>
+      <p class="mt-3">
       <%= link_to users_community_belongs_path(@community), class: "btn btn-danger", method: :delete do %>
        所属を解除
       <% end %>
       所属数<%= @community.belongs.count %> 
-    </p>
+      </p>
     <% else %>
-    <p>このコミュニティに所属するには、
+     <p>このコミュニティに所属するには、
       <%= link_to users_community_belongs_path(@community), method: :post do %>所属する<% end %>を押してください</br>
       <%= link_to users_community_belongs_path(@community), class: "btn btn-success btn-lg", method: :post do %>所属する<% end %>
       所属数<%= @community.belongs.count %>
-    </p>
-  <% end %>
+     </p>
+   <% end %>
       
    <h5><strong>登録情報</strong></h5>    
    <table class="table table-bordered">
@@ -36,6 +36,7 @@
 <div class="row mt-2 border-bottom border-info">
   <div class="col">
 　 <h5><strong>お知らせ掲示板</strong></h5>
+   
    <table class = "table table-bordered">
     <thead>
    　 <tr class="bg-light">
@@ -54,6 +55,7 @@
     <% end %> 
      </tbody>
     </table>
+   
    <%= link_to "全てのお知らせを表示", users_community_posts_path(@community), class: "btn btn-success btn-block mb-4" %>
   </div>
 </div>
@@ -61,26 +63,28 @@
 <div class="row mt-5">
  <div class="col">
   <h5><strong>アンケート</strong></h5>
-<table class="table table-bordered">
-  <thead>
+  
+   <table class="table table-bordered">
+    <thead>
     <tr class="bg-light">
       <th>タイトル</th>
       <th>締め切り日</th>
       <th></th>
     </tr>
-  </thead>
-  <tbody>
+    </thead>
+   <tbody>
     <% @questionaries.each do |questionary| %>
       <tr class="bg-light">
        <% if questionary.community_id == @community.id %>
         <td><%= questionary.title %></td>
         <td><%= questionary.deadline %></td>
         <td><%= link_to 'アンケートに回答する', questionary, class: "btn btn-success" %></td>
-      <% end %>
+       <% end %>
       </tr>
     <% end %>
-  </tbody>
+   </tbody>
 </table>
+  
   </div>
  </div>
 
