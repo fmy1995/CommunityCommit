@@ -1,54 +1,57 @@
- <div class="row">
-  <div class="col-12">  
-   
-<div class="jumbotron" style="background: url(<%= asset_path "top1.jpg" %>) bottom; background-size:cover;">  
-  <div>
+<div class="row">
+ <div class="col-12">  
+　<div class="jumbotron" style="background: url(<%= asset_path "top1.jpg" %>) bottom; background-size:cover;"> 
+   <div>
     <h3 class="display-4 text-white">小さなコミュニティに大きな関心を</h3>
     <p class="lead text-white"><strong>コミュニティコミットへようこそ</strong></p>
-  </div>
-</div> 
-  </div>
+   </div>
+  </div> 
+ </div>
 </div> 
 
+<div class="row">
+ <div class="col-12">  
   <div class="main-text text-center border-bottom border-info mb-3 pb-2">
-    <h5>
+  <h5>
     <strong>このサイトは、マンション管理組合の運営を支援する掲示板サイトです。</br>
     お知らせやアンケートを掲示することで、円滑なマンションライフをサポートいたします。</br>
     ご使用方法は、本ページ下記にてご確認ください。</strong>
-    </h5>
+   </h5>
   </div>
+ </div>
+</div>
   
- <div class ="row mb-5">
-  <% if user_signed_in? %>
-   <div class="col-6">
+<div class ="row mb-5">
+ <% if user_signed_in? %>
+ <div class="col-6">
    <h4 class="text-left mt-3"><strong>一般ユーザー（お知らせ等の確認のみ）</strong></h4>
     <%= link_to "ログイン中です", users_user_path(current_user.id), class: 'btn btn-primary btn-lg mb-2' %>
-   </div> 
-  <% elsif admin_signed_in? %>
-  <div class="col-6">
-   <h4 class="text-left mt-3"><strong>管理者（コミュニティ代表）</strong></h4>
+ </div> 
+ <% elsif admin_signed_in? %>
+ <div class="col-6">
+  <h4 class="text-left mt-3"><strong>管理者（コミュニティ代表）</strong></h4>
     <%= link_to "新規登録（管理者）", new_admin_registration_path, class: 'btn btn-warning btn-lg mb-2' %>
     <%= link_to "ログイン（管理者）", new_admin_session_path, class: 'btn btn-warning btn-lg mb-2' %>
-   </div>
+  </div>
   <% elsif %>
   <div class="col-6">
   <h4 class="text-left mt-3"><strong>一般ユーザー（お知らせ等の確認のみ）</strong></h4>
     <%= link_to "新規登録（ユーザー）", new_user_registration_path, class: 'btn btn-primary btn-lg mb-2' %>
     <%= link_to "ログイン（ユーザー）", new_user_session_path, class: 'btn btn-primary btn-lg mb-2' %>
-   </div>
-    <div class="col-6">
+  </div>
+  <div class="col-6">
   <h4 class="text-left mt-3"><strong>管理者（コミュニティ代表）</strong></h4>
     <%= link_to "新規登録（管理者）", new_admin_registration_path, class: 'btn btn-warning btn-lg mb-2' %>
     <%= link_to "ログイン（管理者）", new_admin_session_path, class: 'btn btn-warning btn-lg mb-2' %>
-    </div>
-   <% end %>
- </div> 
+  </div>
+  <% end %>
+</div> 
  
  <div class="row">
   <div class="cal-12">
-  <div class="jumbotron mb-3" style="background: url(<%= asset_path "glass.jpg" %>) top; background-size:cover">  
+   <div class="jumbotron mb-3" style="background: url(<%= asset_path "glass.jpg" %>) top; background-size:cover">  
     <h3 class="text-left text-white"><strong>ご登録について</strong></h3>
-  </div>
+   </div>
 
   <div class="main-text ml-4  border-bottom border-info mb-3 pb-2">
     <h5><strong>
@@ -94,30 +97,25 @@
     お知らせ掲示板にて確認することができます。また、ユーザー様は各お知らせにコメントをすることや、
     アンケートに回答することができます。
    </strong></h5>
-  </div>
-</div> 
+   </div>
+
+ </div> 
 </div>
 
 <div class ="row mt-3">
  <div class="col-5 ml-5 ">
-<%= image_tag 'postnew.png', size: '400x300', style: 'background-image'%>
-<div>
-<h5 class="text-center mt-1"><strong>簡単にお知らせを作成して…、</strong></h5>
-</div>
-
+  <%= image_tag 'postnew.png', size: '400x300', style: 'background-image'%>
+  <div><h5 class="text-center mt-1"><strong>簡単にお知らせを作成して…、</strong></h5></div>
  </div> 
+ 
  <div class="col-5">
-<%= image_tag 'post.png', size: '400x300', style: 'background-image'%>
-<div>
-<h5 class="text-center mt-1"><strong>簡単にみんなに通知しましょう！！</strong></h5>
-</div> 
+ <%= image_tag 'post.png', size: '400x300', style: 'background-image'%>
+  <div><h5 class="text-center mt-1"><strong>簡単にみんなに通知しましょう！！</strong></h5></div> 
   
- <div class="text-center border-bottom border-info mb-3 pb-2">
-   <h5>
-    <strong>本サイトをご利用にあたってのご意見やご質問は</br>
-    サイト下部「お問い合わせ」より、メールにてお寄せください。</strong>
-   </h5>
- </div>  
+  <div class="text-center border-bottom border-info mb-3 pb-2">
+   <h5><strong>本サイトをご利用にあたってのご意見やご質問は</br>
+    サイト下部「お問い合わせ」より、メールにてお寄せください。</strong></h5>
+  </div>  
   
  </div> 
 </div>  
